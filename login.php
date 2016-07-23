@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 	<html>
 	<head>
@@ -38,7 +41,8 @@
 			}
 			else
 			{
-				echo 'hi';
+				$_SESSION['username']=$un1;
+			header("Location: profile.php");//to be chnaged to dashboard.php
 			}
 		}
 		?>
