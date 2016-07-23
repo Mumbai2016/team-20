@@ -38,7 +38,7 @@
     <?php
       $host = 'localhost';
       $username = 'root';
-      $password = '';
+      $password = 'ankita';
       $database = 'katalyst';
       $conn = new mysqli($host,$username,$password,$database);
       $res = $conn->query("SELECT * FROM `katalyst`.`user`");
@@ -74,7 +74,7 @@
     <?php
       $host = 'localhost';
       $username = 'root';
-      $password = '';
+      $password = 'ankita';
 
       $database = 'katalyst';
       $conn = new mysqli($host,$username,$password,$database);
@@ -106,7 +106,7 @@ if(isset($_POST['submit']))
 {
 $host = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'ankita';
 $database = 'katalyst';
 $conn = new mysqli($host,$username,$password,$database);
 $file = $_FILES['file']['tmp_name'];
