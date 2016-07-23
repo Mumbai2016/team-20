@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel = "stylesheet" type = "text/css" href = "formc.css">
 	<script>
 function validate() {
 	//validating name
@@ -195,40 +194,41 @@ if(compAddr == null || compAddr == ""){
 			}
 			if($flag==1)
 			{
-			?> 
-			  <script type="text/javascript"> 
-			    alert("The username <?php echo $_POST['username']; ?> is already registered."); 
-			    history.back(); 
-			  </script> 
-			<?php 
+				?> 
+				  <script type="text/javascript"> 
+				    alert("The username <?php echo $_POST['username']; ?> is already registered."); 
+				    history.back(); 
+				  </script> 
+				<?php 
 			}
 			else if($flag==2)
 			{
-			?> 
-			  <script type="text/javascript"> 
-			    alert("The email <?php echo $_POST['email']; ?> is already registered."); 
-			    history.back(); 
-			  </script> 
-			<?php
+				?> 
+				  <script type="text/javascript"> 
+				    alert("The email <?php echo $_POST['email']; ?> is already registered."); 
+				    history.back(); 
+				  </script> 
+				<?php
 			}
 			else
 			{
-			$date=$_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
-			$password = $_POST['password'];
-			$name = $_POST['name'];
-			$location = $_POST['location'];
-			$address = $_POST['address'];
-			$mobileno=$_POST['mobileno'];
-			$qual=$_POST['qual'];
-			$colg=$_POST['colg'];
-			$designation=$_POST['designation'];
-			$compaddress=$_POST['compaddress'];
-			$role="1";
-			$field=$_POST['field'];
-			$gender=$_POST['gender'];
-			$query=("INSERT INTO `user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`,`address`,`qualification`,`college`,`company`,`designation`,`compAddr`,``field,`gender`,`role`) VALUES ('$name','$date','$location','$mobileno','$email','$username','$password','$address','$qual','$colg','$compaddress','$designation','$compaddress','$field','$gender','$role')");
-			$res=mysql_query($query);
-				
+				$date=$_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
+				$password = $_POST['password'];
+				$name = $_POST['name'];
+				$location = $_POST['location'];
+				$address = $_POST['address'];
+				$mobileno=$_POST['mobileno'];
+				$qual=$_POST['qual'];
+				$colg=$_POST['colg'];
+				$comp=$_POST['company'];
+				$designation=$_POST['designation'];
+				$compaddress=$_POST['compaddress'];
+				$field=$_POST['field'];
+				$gender=$_POST['gender'];
+				$conf=0;
+				echo 2323;
+				$sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobileno', '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', 'Mentor', '$conf');");
+				$res=$conn->query($sql);
 			}
 
 			
@@ -336,6 +336,7 @@ if(compAddr == null || compAddr == ""){
              Qualification:</br></br><input type="text" name="qual" id= "qualifications" required>	</br></br> <p class="error" id="qual"></p>
              College:</br></br ><input type="text" name="colg" id= "college" required>	</br></br> <p class="error" id="mob"></p>
              Designation:</br></br><input type="text" name="designation" id= "designation" required>	</br></br> <p class="error" id="des"></p>
+             Company:</br></br><input type="text" name="company" id= "company" required>	</br></br> <p class="error" id="comp"></p>
              Company address:</br></br><input type="text" name="compaddress" id= "compAddr" required>	</br></br> <p class="error" id="comadd"></p>
              Enter your field:</br></br><input type="text" name="field" id= "field" required>	</br></br> <p class="error" id="fieldexp"></p>
              
