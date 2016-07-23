@@ -2,6 +2,72 @@
 	<html>
 	<head>
 		<title>Get Traditional</title>
+
+		<?php
+		session_start();
+		
+		if(isset($_POST['submit']))
+		{
+			$host = 'localhost';
+			$username = 'root';
+			$password = 'ankita';
+			$database = 'katalyst';
+			$conn = new mysqli($host,$username,$password,$database);
+			$username = $_POST['username'];
+			$flag=0;
+			$email = $_POST['email'];
+			$res = $conn->query("select email,username from user");
+			while($row=$res->fetch_assoc())
+			{
+				if($username==$row['username'])
+					$flag=1;
+				if($email==$row['email'])
+					$flag=2;
+			}
+			if($flag==1)
+			{
+				?> 
+				  <script type="text/javascript"> 
+				    alert("The username <?php echo $_POST['username']; ?> is already registered."); 
+				    history.back(); 
+				  </script> 
+				<?php 
+			}
+			else if($flag==2)
+			{
+				?> 
+				  <script type="text/javascript"> 
+				    alert("The email <?php echo $_POST['email']; ?> is already registered."); 
+				    history.back(); 
+				  </script> 
+				<?php
+			}
+			else
+			{
+				$date=$_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
+				$password = $_POST['password'];
+				$name = $_POST['name'];
+				$location = $_POST['location'];
+				$address = $_POST['address'];
+				$mobileno=$_POST['mobileno'];
+				
+				$colg=$_POST['college'];
+				
+				
+				$colgaddress=$_POST['colgaddress'];
+				$field=$_POST['field'];
+				$gender=$_POST['gender'];
+				$conf=0;
+				echo 2323;
+				$sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `college`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobileno', '$email', '$username', '$password', '$address', '$colg', '$colgaddress', '$field', '$gender', 'Mentee', '$conf');");
+				$res=$conn->query($sql);
+				$_SESSION['username']=$username;
+			}
+
+			
+			//header("Location: profile.php");
+		}
+	?>
 		<link rel="stylesheet" type="text/css" href="formdesign.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 		</script>
@@ -11,14 +77,14 @@
 	     
 		 
 		
-		 <form action="info.php" method="post" id="form">
+		 <form action="formmentee.php" method="post" id="form">
 			 
 				 
 			 
 			
 			 
 			 Name:</br></br><input type="text" name="name" id= "name" required>	</br></br>
-			 Date of Birth:</br></br><select id="DOBMonth" name="month">
+             Date of Birth:</br></br><select id="DOBMonth" name="month">
 						<option> - Month - </option>
 						<option value="January">January</option>
 						<option value="February">February</option>
@@ -96,24 +162,25 @@
 						<option value="1981">1981</option>
 					</select>
 					<p id="dob" class="error"></p>
-             Location:</br></br><input type="text" name="location" id= "location" required>	</br></br><p class="error" id="loc"></p>
-             Email ID:</br></br><input type="text" name="email" id= "email"required></br></br>  <p class="error" id="em"></p>
-             Username:</br></br><input type="text" name="user" id= "username" required>	</br></br> <p class="error" id="un"></p>
-             Password:</br></br><input type="password" name="password" id= "password" required>	</br></br><p class="error" id="pwd"></p>
-             Address:</br></br><input type="text" name="name" id= "address" required>	</br></br> <p class="error" id="addr"></p>
-             Mobile:</br></br><input type="text" name="mobileno" id= "mobileno" required>	</br></br> <p class="error" id="mob"></p>
-             Qualification:</br></br><input type="text" name="qual" id= "qualifications" required>	</br></br> <p class="error" id="qual"></p>
-             College:</br></br ><input type="text" name="colg" id= "college" required>	</br></br> <p class="error" id="mob"></p>
-             Designation:</br></br><input type="text" name="designation" id= "designation" required>	</br></br> <p class="error" id="des"></p>
-             Company address:</br></br><input type="text" name="compaddress" id= "compAddr" required>	</br></br> <p class="error" id="comadd"></p>
-             Enter your field:</br></br><input type="text" name="field" id= "field" required>	</br></br> <p class="error" id="fieldexp"></p>
+             Location:</br></br><input type="text" name="location" id= "location" required>	</br></br>
+             Email ID:</br></br><input type="text" name="email" id= "email"required></br></br>  
+             Username:</br></br><input type="text" name="username" id= "username" required>	</br></br> 
+
+             Password:</br></br><input type="password" name="password" id= "password" required>	</br></br>
+             Mobile:</br></br><input type="text" name="mobile" id= "mobile" required>	</br></br> 
+             Address:</br></br><input type="text" name="name" id= "address" required>	</br></br> 
+            
+             College:</br></br ><input type="text" name="college" id= "college" required>	</br></br> 
+             College Address:</br></br ><input type="text" name="collegeaddress" id= "college" required>	</br></br> 
+            
+           
+             Enter your field:</br></br><input type="text" name="field" id= "field" required>	</br></br> 
              
              
 			Gender:</br></br><input type="radio" name="gender" id= "gender"value="Male"checked>Male</input>
 			<input type="radio" name="gender" id= "gender"value="Female"checked>Female</input></br></br>
-
-    
-   </select>
+		
+		
   <br><br>	</br></br> 
 			 
 			 <input type="submit" name="submit" value="submit">
