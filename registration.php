@@ -173,12 +173,13 @@ if(compAddr == null || compAddr == ""){
 }</script>
 	<title>FORM</title>
 	<?php
+	session_start();
 		
 		if(isset($_POST['submit']))
 		{
 			$host = 'localhost';
 			$username = 'root';
-			$password = '';
+			$password = 'ankita';
 			$database = 'katalyst';
 			$conn = new mysqli($host,$username,$password,$database);
 			$username = $_POST['username'];
@@ -229,6 +230,7 @@ if(compAddr == null || compAddr == ""){
 				echo 2323;
 				$sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobileno', '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', 'Mentor', '$conf');");
 				$res=$conn->query($sql);
+				SESSION['username']=$username;
 			}
 
 			
@@ -343,7 +345,7 @@ if(compAddr == null || compAddr == ""){
              
 			Gender:</br></br><input type="radio" name="gender" id= "gender"value="Male"checked>Male</input>
 			<input type="radio" name="gender" id= "gender"value="Female"checked>Female</input></br></br>
-			 <input type="submit" name="submit" value="submit">
+			 <input type="submit" name="submit" value="submit" onClick="validate()">
 
 		 </form>
             
