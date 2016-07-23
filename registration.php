@@ -1,6 +1,4 @@
-<?php
-	session_start();
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -176,7 +174,7 @@ if(compAddr == null || compAddr == ""){
 }</script>
 	<title>FORM</title>
 	<?php
-		session_start();
+		
 		if(isset($_POST['submit']))
 		{
 			$host = 'localhost';
@@ -184,7 +182,7 @@ if(compAddr == null || compAddr == ""){
 			$password = 'ankita';
 			$database = 'katalyst';
 			$conn = new mysqli($host,$username,$password,$database);
-			$username = $_POST['username'];
+			$username = $_POST['user'];
 			$flag=0;
 			$email = $_POST['email'];
 			$res = $conn->query("select email,username from user");
@@ -225,15 +223,16 @@ if(compAddr == null || compAddr == ""){
 			$colg=$_POST['colg'];
 			$designation=$_POST['designation'];
 			$compaddress=$_POST['compaddress'];
-			$company=$_POST['çompany']
-			$role='1';
+			$role="1";
 			$field=$_POST['field'];
 			$gender=$_POST['gender'];
 
-				$res=$conn->query("INSERT INTO `katalyst`.`user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`,`address`,`qualification`,`college`,`company`,`designation`,`compAddr`,``field,`gender`,`role`) VALUES ('$name','$date','$location','$mobileno','$email','$username','$password','$address','$qual','$colg','$company','$designation','$compaddress','$field','$gender','$role')");
+				$query=("INSERT INTO `user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`,`address`,`qualification`,`college`,`company`,`designation`,`compAddr`,``field,`gender`,`role`) VALUES ('$name','$date','$location','$mobileno','$email','$username','$password','$address','$qual','$colg','$compaddress','$designation','$compaddress','$field','$gender','$role')");
+				$res=mysql_query($query);
+				echo "insetred";
 			}
 
-			$_SESSION['username']=$username;	
+			
 			//header("Location: profile.php");
 		}
 	?>
@@ -251,7 +250,7 @@ if(compAddr == null || compAddr == ""){
 	     
 		 
 		
-		 <form action="info.php" method="post" id="form">
+		 <form action="registration.php" method="post" id="form">
 			 
 				 
 			 
