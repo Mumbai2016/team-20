@@ -1,4 +1,8 @@
 
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,7 +177,7 @@ if(compAddr == null || compAddr == ""){
 }</script>
 	<title>FORM</title>
 	<?php
-	session_start();
+	
 		
 		if(isset($_POST['submit']))
 		{
