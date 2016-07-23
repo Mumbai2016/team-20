@@ -1,4 +1,8 @@
 
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,7 +177,7 @@ if(compAddr == null || compAddr == ""){
 }</script>
 	<title>FORM</title>
 	<?php
-	session_start();
+	
 		
 		if(isset($_POST['submit']))
 		{
@@ -230,7 +234,7 @@ if(compAddr == null || compAddr == ""){
 				echo 2323;
 				$sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobileno', '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', 'Mentor', '$conf');");
 				$res=$conn->query($sql);
-				SESSION['username']=$username;
+				$_SESSION['username']=$username;
 			}
 
 			
