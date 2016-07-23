@@ -179,10 +179,10 @@ if(compAddr == null || compAddr == ""){
 		{
 			$host = 'localhost';
 			$username = 'root';
-			$password = 'ankita';
+			$password = '';
 			$database = 'katalyst';
 			$conn = new mysqli($host,$username,$password,$database);
-			$username = $_POST['user'];
+			$username = $_POST['username'];
 			$flag=0;
 			$email = $_POST['email'];
 			$res = $conn->query("select email,username from user");
@@ -226,24 +226,21 @@ if(compAddr == null || compAddr == ""){
 			$role="1";
 			$field=$_POST['field'];
 			$gender=$_POST['gender'];
-
-				$query=("INSERT INTO `user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`,`address`,`qualification`,`college`,`company`,`designation`,`compAddr`,``field,`gender`,`role`) VALUES ('$name','$date','$location','$mobileno','$email','$username','$password','$address','$qual','$colg','$compaddress','$designation','$compaddress','$field','$gender','$role')");
-				$res=mysql_query($query);
-				echo "insetred";
+			$query=("INSERT INTO `user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`,`address`,`qualification`,`college`,`company`,`designation`,`compAddr`,``field,`gender`,`role`) VALUES ('$name','$date','$location','$mobileno','$email','$username','$password','$address','$qual','$colg','$compaddress','$designation','$compaddress','$field','$gender','$role')");
+			$res=mysql_query($query);
+				
 			}
 
 			
 			//header("Location: profile.php");
 		}
 	?>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-		</script>
-		<script type="text/javascript" src="formscripts.js"></script>
+		
 		<style type="text/css">
 			.error{
-	color: red;
-	font-size: 17px;
-}
+				color: red;
+				font-size: 17px;
+			}
 		</style>
 	</head>
 	<body>
@@ -251,11 +248,6 @@ if(compAddr == null || compAddr == ""){
 		 
 		
 		 <form action="registration.php" method="post" id="form">
-			 
-				 
-			 
-			
-			 
 			 Name:</br></br><input type="text" name="name" id= "name" required>	</br></br><p class="error" id="name-err"></p>
 			 Date of Birth:</br></br><select id="DOBMonth" name="month">
 						<option> - Month - </option>
@@ -337,10 +329,10 @@ if(compAddr == null || compAddr == ""){
 					<p id="dob" class="error"></p>
              Location:</br></br><input type="text" name="location" id= "location" required>	</br></br><p class="error" id="loc"></p>
              Email ID:</br></br><input type="text" name="email" id= "email"required></br></br>  <p class="error" id="em"></p>
-             Username:</br></br><input type="text" name="user" id= "username" required>	</br></br> <p class="error" id="un"></p>
+             Username:</br></br><input type="text" name="username" id= "username" required>	</br></br> <p class="error" id="un"></p>
              Password:</br></br><input type="password" name="password" id= "password" required>	</br></br><p class="error" id="pwd"></p>
              Address:</br></br><input type="text" name="address" id= "address" required>	</br></br> <p class="error" id="addr"></p>
-             Mobile:</br></br><input type="text" name="mobileno" id= "mobileno" required>	</br></br> <p class="error" id="mob"></p>
+             Mobile:</br></br><input type="text" name="mobileno" id= "mobile-no" required>	</br></br> <p class="error" id="mob"></p>
              Qualification:</br></br><input type="text" name="qual" id= "qualifications" required>	</br></br> <p class="error" id="qual"></p>
              College:</br></br ><input type="text" name="colg" id= "college" required>	</br></br> <p class="error" id="mob"></p>
              Designation:</br></br><input type="text" name="designation" id= "designation" required>	</br></br> <p class="error" id="des"></p>
@@ -350,18 +342,9 @@ if(compAddr == null || compAddr == ""){
              
 			Gender:</br></br><input type="radio" name="gender" id= "gender"value="Male"checked>Male</input>
 			<input type="radio" name="gender" id= "gender"value="Female"checked>Female</input></br></br>
-
-    
-   </select>
-  <br><br>	</br></br> 
-			 
 			 <input type="submit" name="submit" value="submit">
-			
-			
-			
-			  
+
 		 </form>
             
 	</body>
 </html>
-	<form style = "display: inline-block"  method = "post" action="form.php" onsubmit="return validate();" id="theform">
