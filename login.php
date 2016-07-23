@@ -14,7 +14,7 @@
 		{
 			$host = 'localhost';
 			$username = 'root';
-			$password = 'ankita';
+			$password = '';
 			$database = 'katalyst';
 			$conn = new mysqli($host,$username,$password,$database) or die(mysql_error());
 			$un1=$_POST['username'];
@@ -26,6 +26,7 @@
 				if($un1 === $row['username'])
 				{
 					$usernamepresent=1;
+					$role=$row['role'];
 					break;
 				}
 			}
@@ -42,7 +43,8 @@
 			else
 			{
 				$_SESSION['username']=$un1;
-			header("Location: profile.php");//to be chnaged to dashboard.php
+				$_SESSION['role']=$role;
+			header("Location: menteeindex.php");//to be chnaged to dashboard.php
 			}
 		}
 		?>
@@ -55,11 +57,6 @@
 			 
 	     Username:</br></br><input type="text" name="username" id= "username" required>	</br></br>
    		 Password:</br></br><input type="password" name="password" id= "password" required></br></br>
-         Select your role:<select name="role" label for="role">
-		    <option value="mentor">Mentor</option>
-		    <option value="Mentee">Mentee</option>
-		    <option value="Admin">Admin</option>
-	   </select>
   <br><br>	</br></br> 
 			 
 			 <input type="submit" name="submit" value="submit">

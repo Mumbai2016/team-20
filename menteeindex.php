@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 	<!doctype html>
 	<html lang="en">
 	<html>
@@ -7,6 +10,46 @@
 	<link rel="stylesheet" type="text/css" href="mentee.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script type="text/javascript" src="mentee.js"></script>
+	<?php
+
+			$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'katalyst';
+$conn = new mysqli($host,$username,$password,$database);
+
+			$menteename=$_SESSION['username'];
+			$res = $conn->query("SELECT * FROM `katalyst`.`mapping`");
+      while($row=$res->fetch_assoc())
+      {
+      		if($row['mentee_username']==$menteename)
+      			break;
+      }
+      $mentorname=$row['mentor_username'];
+      $score=$row['score'];
+      $res = $conn->query("SELECT * FROM `katalyst`.`user`");
+      while($row=$res->fetch_assoc())
+      {
+      		if($row['username']==$mentorname)
+      			break;
+      }
+
+      $mentoremail=$row['email'];
+      
+
+
+      if(isset($_POST['submit']))
+      {
+      	$result = $conn->query("insert into meeting (time,date,location)  values($time,$date,$location)");
+      	$time=$_POST['time'];
+      $date=$_POST['date'];
+      $location=$_POST['location'];
+      	$to=$mentoremail;
+      	$subject="New Mentoee Invitation Received";
+      	$message="Hello, I want to schedule a meeting on ".$date." at ".$time." at ".$location.". Thank you. ".$menteename;
+      	mail($to,$subject,$message);
+      }
+	?>
 	</head>
 	<body>
 	
@@ -20,12 +63,12 @@
 		<a id ="schedule" href="#feedback">Feedback</a>
 		<a href="#profile">Profile</a>
      </nav>
-	  <form id="form" action='menteedashboard.php' method='post'>
-	         TO:</br><input type="text" name="rid" id= "rid"required></br></br>
-			 Time:</br><input type="text" name="name" id= "name" required>	</br></br>
-			 Date:</br><input type="text" name="gender" id= "gender"required></br></br>
-			 location:</br><input type="option" name="age" id="age"required></br></br>
-			 <input type="submit" value="Submit" id="submit"></br></br>
+	  <form id="form" action='menteeindex.php' method='post'>
+	         TO:</br><input type="text" name="rid" id= "rid" value="<?php if(isset($_SESSION['username'])) echo $mentoremail; ?>"/></br></br>
+			 Time:</br><input type="text" name="time" id= "name" required>	</br></br>
+			 Date:</br><input type="text" name="date" id= "gender"required></br></br>
+			 location:</br><input type="option" name="location" id="age"required></br></br>
+			 <input type="submit" value="submit" name="submit"id="submit"></br></br>
 	 </form>
 	 </div>
 	 
