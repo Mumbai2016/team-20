@@ -227,10 +227,9 @@ if(compAddr == null || compAddr == ""){
 				$field=$_POST['field'];
 				$gender=$_POST['gender'];
 				$conf=0;
-				echo 2323;
 				$sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobileno', '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', 'Mentor', '$conf');");
 				$res=$conn->query($sql);
-				SESSION['username']=$username;
+				$_SESSION['username']=$username;
 			}
 
 			
