@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,38 @@
   <div class="row">
     <div class="col-xs-6">
       <div class="well">
-       Username <button>Approved</button><button>Not Approved</button>
+  <table class="table">
+  <thead>
+      <tr>
+        <th>Username</th>
+        <th>Approve?</th>
+        <th>Don't Approve?</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+      $host = 'localhost';
+      $username = 'root';
+      $password = '';
+      $database = 'katalyst';
+      $conn = new mysqli($host,$username,$password,$database);
+      $res = $conn->query("SELECT * FROM `katalyst`.`user`");
+      while($row=$res->fetch_assoc())
+      {
+
+        if(0 == $row['confirmation']){
+          $username=$row['username'];
+
+          echo '<tr>
+              <td>'.$username.'</td>
+              <td><button>Approve</button></td>
+              <td><button>Not Approve</button></td>
+              </tr>';
+         }
+      }
+  ?>
+    </tbody>
+  </table>
       </div>
     </div>
     <div class="col-xs-6">
@@ -39,28 +71,77 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+    <?php
+      $host = 'localhost';
+      $username = 'root';
+      $password = '';
+
+      $database = 'katalyst';
+      $conn = new mysqli($host,$username,$password,$database);
+      $res = $conn->query("SELECT * FROM `katalyst`.`mapping`");
+      while($row=$res->fetch_assoc())
+      {
+          $mentor=$row['mentor_username'];
+          $mentee=$row['mentee_username'];
+          $score=$row['score'];
+          echo '<tr>
+              <td>'.$mentor.'</td>
+              <td>'.$mentee.'</td>
+              <td>'.$score.'</td>
+              </tr>';
+      }
+  ?>
     </tbody>
-  </table>
   </table>
       </div>
     </div>
   </div>
 </div>
+<form name='import' method='post' enctype='multipart/form-data'>
+<input type='file' name='file' /><br />
+<input type='submit' name='submit' value='Submit' />
+</form>
+<?php
+if(isset($_POST['submit']))
+{
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'katalyst';
+$conn = new mysqli($host,$username,$password,$database);
+$file = $_FILES['file']['tmp_name'];
+$handle = fopen($file, 'r');
+$c=0;
+while(($filesop = fgetcsv($handle, 1000, ',')) !== false)
+{
+$date=$filesop[2];
+$username=$filesop[5];
+$email=$filesop[6];
+$password = $filesop[7];
+$name =  $filesop[1];
+$location = $filesop[3];
+$address = $filesop[8];
+$mobileno=(int)$filesop[4];
+$qual=$filesop[9];
+$colg=$filesop[10];
+$comp=$filesop[11];
+$designation=$filesop[12];
+$compaddress=$filesop[13];
+$field=$filesop[14];
+$gender=$filesop[15];
+$role=$filesop[16];
+$conf=(int)$filesop[17];
+$sql=("INSERT INTO `katalyst`.`user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES ('$name', $date, '$location', $mobileno, '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', '$role', $conf);");
+$res=$conn->query($sql);
+$c=$c+1;
 
+}
+if($res){
+echo 'You database has imported successfully. You have inserted'.$c.'records';
+}else{
+echo 'Sorry! There is some problem.';
+}
+}
+?>
 </body>
 </html>
