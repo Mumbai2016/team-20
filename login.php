@@ -14,9 +14,9 @@
 		{
 			$host = 'localhost';
 			$username = 'root';
-			$password = '';
+			$password = 'ankita';
 			$database = 'katalyst';
-			$conn = new mysqli($host,$username,$password,$database);
+			$conn = new mysqli($host,$username,$password,$database) or die(mysql_error());
 			$un1=$_POST['username'];
 			$pw1=$_POST['password'];
 			$usernamepresent=0;

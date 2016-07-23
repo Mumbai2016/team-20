@@ -20,7 +20,7 @@
 		<a id ="schedule" href="#feedback">Feedback</a>
 		<a href="#profile">Profile</a>
      </nav>
-	  <form id="form">
+	  <form id="form" action='menteedashboard.php' method='post'>
 	         TO:</br><input type="text" name="rid" id= "rid"required></br></br>
 			 Time:</br><input type="text" name="name" id= "name" required>	</br></br>
 			 Date:</br><input type="text" name="gender" id= "gender"required></br></br>
