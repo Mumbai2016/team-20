@@ -1,0 +1,33 @@
+*{
+	 padding:0PX;
+	 margin: 0px;	
+}
+#register{
+	 
+	 font-size:35px;
+	 text-align:center;
+	 margin-top:3%;
+	 background-color:#e67e22;
+	 
+	 
+	 
+	
+}
+#register a{
+	
+	margin:3%;
+	color:black;
+	font-family: "Segoe UI", Georgia, Serif;
+	padding:10px;
+	
+	
+	
+}
+#register a:hover{
+	 
+	 
+	 
+	 color: green;
+
+	 
+ }
