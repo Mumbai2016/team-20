@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel = "stylesheet" type = "text/css" href = "formc.css">
 	<script>
 function validate() {
 	//validating name
@@ -195,40 +194,41 @@ if(compAddr == null || compAddr == ""){
 			}
 			if($flag==1)
 			{
-			?> 
-			  <script type="text/javascript"> 
-			    alert("The username <?php echo $_POST['username']; ?> is already registered."); 
-			    history.back(); 
-			  </script> 
-			<?php 
+				?> 
+				  <script type="text/javascript"> 
+				    alert("The username <?php echo $_POST['username']; ?> is already registered."); 
+				    history.back(); 
+				  </script> 
+				<?php 
 			}
 			else if($flag==2)
 			{
-			?> 
-			  <script type="text/javascript"> 
-			    alert("The email <?php echo $_POST['email']; ?> is already registered."); 
-			    history.back(); 
-			  </script> 
-			<?php
+				?> 
+				  <script type="text/javascript"> 
+				    alert("The email <?php echo $_POST['email']; ?> is already registered."); 
+				    history.back(); 
+				  </script> 
+				<?php
 			}
 			else
 			{
-			$date=$_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
-			$password = $_POST['password'];
-			$name = $_POST['name'];
-			$location = $_POST['location'];
-			$address = $_POST['address'];
-			$mobileno=$_POST['mobileno'];
-			$qual=$_POST['qual'];
-			$colg=$_POST['colg'];
-			$designation=$_POST['designation'];
-			$compaddress=$_POST['compaddress'];
-			$role="1";
-			$field=$_POST['field'];
-			$gender=$_POST['gender'];
-			$query=("INSERT INTO `user` (`name`, `dob`, `location`, `mobile`, `email`, `username`, `password`,`address`,`qualification`,`college`,`company`,`designation`,`compAddr`,``field,`gender`,`role`) VALUES ('$name','$date','$location','$mobileno','$email','$username','$password','$address','$qual','$colg','$compaddress','$designation','$compaddress','$field','$gender','$role')");
-			$res=mysql_query($query);
-				
+				$date=$_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];
+				$password = $_POST['password'];
+				$name = $_POST['name'];
+				$location = $_POST['location'];
+				$address = $_POST['address'];
+				$mobileno=$_POST['mobileno'];
+				$qual=$_POST['qual'];
+				$colg=$_POST['colg'];
+				$comp=$_POST['company'];
+				$designation=$_POST['designation'];
+				$compaddress=$_POST['compaddress'];
+				$field=$_POST['field'];
+				$gender=$_POST['gender'];
+				$conf=0;
+				echo 2323;
+				$sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobileno', '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', 'Mentor', '$conf');");
+				$res=$conn->query($sql);
 			}
 
 			
@@ -248,7 +248,7 @@ if(compAddr == null || compAddr == ""){
 		 
 		
 		 <form action="registration.php" method="post" id="form">
-			 Name:</br></br><input type="text" name="name" id= "name" required>	</br></br><p class="error" id="name-err"></p>
+			 Name:</br></br><input type="text" name="name" id= "name"  >	</br></br><p class="error" id="name-err"></p>
 			 Date of Birth:</br></br><select id="DOBMonth" name="month">
 						<option> - Month - </option>
 						<option value="January">January</option>
@@ -327,17 +327,18 @@ if(compAddr == null || compAddr == ""){
 						<option value="1981">1981</option>
 					</select>
 					<p id="dob" class="error"></p>
-             Location:</br></br><input type="text" name="location" id= "location" required>	</br></br><p class="error" id="loc"></p>
-             Email ID:</br></br><input type="text" name="email" id= "email"required></br></br>  <p class="error" id="em"></p>
-             Username:</br></br><input type="text" name="username" id= "username" required>	</br></br> <p class="error" id="un"></p>
-             Password:</br></br><input type="password" name="password" id= "password" required>	</br></br><p class="error" id="pwd"></p>
-             Address:</br></br><input type="text" name="address" id= "address" required>	</br></br> <p class="error" id="addr"></p>
-             Mobile:</br></br><input type="text" name="mobileno" id= "mobile-no" required>	</br></br> <p class="error" id="mob"></p>
-             Qualification:</br></br><input type="text" name="qual" id= "qualifications" required>	</br></br> <p class="error" id="qual"></p>
-             College:</br></br ><input type="text" name="colg" id= "college" required>	</br></br> <p class="error" id="mob"></p>
-             Designation:</br></br><input type="text" name="designation" id= "designation" required>	</br></br> <p class="error" id="des"></p>
-             Company address:</br></br><input type="text" name="compaddress" id= "compAddr" required>	</br></br> <p class="error" id="comadd"></p>
-             Enter your field:</br></br><input type="text" name="field" id= "field" required>	</br></br> <p class="error" id="fieldexp"></p>
+             Location:</br></br><input type="text" name="location" id= "location"  >	</br></br><p class="error" id="loc"></p>
+             Email ID:</br></br><input type="text" name="email" id= "email" ></br></br>  <p class="error" id="em"></p>
+             Username:</br></br><input type="text" name="username" id= "username"  >	</br></br> <p class="error" id="un"></p>
+             Password:</br></br><input type="password" name="password" id= "password"  >	</br></br><p class="error" id="pwd"></p>
+             Address:</br></br><input type="text" name="address" id= "address"  >	</br></br> <p class="error" id="addr"></p>
+             Mobile:</br></br><input type="text" name="mobileno" id= "mobile-no"  >	</br></br> <p class="error" id="mob"></p>
+             Qualification:</br></br><input type="text" name="qual" id= "qualifications"  >	</br></br> <p class="error" id="qual"></p>
+             College:</br></br ><input type="text" name="colg" id= "college"  >	</br></br> <p class="error" id="mob"></p>
+             Designation:</br></br><input type="text" name="designation" id= "designation"  >	</br></br> <p class="error" id="des"></p>
+             Company:</br></br><input type="text" name="company" id= "company"  >	</br></br> <p class="error" id="comp"></p>
+             Company address:</br></br><input type="text" name="compaddress" id= "compAddr"  >	</br></br> <p class="error" id="comadd"></p>
+             Enter your field:</br></br><input type="text" name="field" id= "field"  >	</br></br> <p class="error" id="fieldexp"></p>
              
              
 			Gender:</br></br><input type="radio" name="gender" id= "gender"value="Male"checked>Male</input>
