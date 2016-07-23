@@ -53,10 +53,39 @@ $conn = new mysqli($host,$username,$password,$database);
 	</head>
 	<body>
 	
+	
 	  <header>
 	  <p id="p1">Mentor Dashboard</p>
 	  <p id="p2">Mentee DashBoard</p>
 	 </header>
+	 <div id="progress">
+	 <body>
+    <div class="container">
+        <h1>Bootstrap Progress Bar</h1>
+
+        <p>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="reset" data-level="info" class="btn btn-default">Reset</button>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="0" class="btn btn-default">0%</button>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="10" class="btn btn-default">10%</button>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="30" class="btn btn-default">30%</button>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="75" class="btn btn-default">75%</button>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="100" class="btn btn-default">100%</button>
+            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="finish" data-level="success" class="btn btn-default">Finish</button>
+        </p>
+
+        <div id="myProgressbar" class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+            <span class="sr-only">0% Complete</span>
+          </div>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="js/progressbar.js"></script>
+	 
+	 
+	 </div>
 	 <div id="menu1">
 	 <nav id="menu">
 	    <a id ="schedule" href="#schedule">Schedule</a>
