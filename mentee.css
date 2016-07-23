@@ -8,7 +8,7 @@ header{
 	background-size:20px;
 	float:center;
 	font-size:45px;
-	padding:3%;
+	padding:5%;
 	margin:2%;
 	font-family: "Segoe UI", Georgia, Serif;
 	text-align:center;
@@ -42,17 +42,18 @@ header{
  #menu{
 	 
 	 font-size:35px;
-	 padding:8px;
 	 text-align:center;
+	 
 	 
 	 
 	
 }
 #menu a{
 	
-	padding:15px;
+	
 	color:black;
 	font-family: "Segoe UI", Georgia, Serif;
+	padding:10px;
 	
 	
 	
@@ -66,7 +67,7 @@ header{
 	 
  }
 #form{
-	margin-top:2px;
+	margin-top:5%;
 	margin-left: 18%;
 	padding-top:2%;
 	float:left;
@@ -109,5 +110,63 @@ header{
 	
 	
 }
- 
+ #p1{
+	 padding-left:12px;
 
+ }
+ #p1:hover{
+	 color: white;
+	 cursor: pointer;
+	 
+ }
+  #p2:hover{
+	 color: white;
+	 cursor: pointer;
+	  
+ }
+#events{
+    width: 40%;
+    height: 200px;
+    border: 1px solid green;
+}
+#schedule{
+  margin-left:60%;
+  
+  
+}
+th{
+	
+	padding:20px;
+}
+
+ #menu3{
+	 
+	 font-size:35px;
+	 text-align:left;
+	 
+	 
+	 
+	
+}
+#menu3 a{
+	
+	
+	color:black;
+	font-family: "Segoe UI", Georgia, Serif;
+	padding:10px;
+	
+	
+	
+}
+#menu3 a:hover{
+	 
+	 
+	 
+	 color: green;
+
+	 
+ }
+ form{
+	 
+	 
+ }
