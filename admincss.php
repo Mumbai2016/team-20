@@ -41,20 +41,38 @@
       $password = 'ankita';
       $database = 'katalyst';
       $conn = new mysqli($host,$username,$password,$database);
+      
+      
       $res = $conn->query("SELECT * FROM `katalyst`.`user`");
+      
+
       while($row=$res->fetch_assoc())
       {
 
         if(0 == $row['confirmation']){
           $username=$row['username'];
 
+          
+
           echo '<tr>
               <td>'.$username.'</td>
-              <td><button>Approve</button></td>
-              <td><button>Not Approve</button></td>
+              <td><button>Approve</button onClick="approve(\''.$username.'\')"></td>
+              <td><button>Not Approve</button onClick="notapprove($username)"></td>
               </tr>';
+
          }
+         /*function approve("username")
+      {
+
+
+        $res = mysql_query("update user set confirmation=1 where username='username'");
+      
+        
+        location.reload();
+              }*/
       }
+      
+      
   ?>
     </tbody>
   </table>
