@@ -150,7 +150,7 @@ $conn = new mysqli($host,$username,$password,$database);
     <div style="border: solid black 1px;
       height: 30px;
       width: 500px;float:left;">
-          <div style="height: 30px; width:300px; background-color: blue;" ></div>
+          <div style="height: 30px; width:200px; background-color: blue;" ></div>
     </div>
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>
