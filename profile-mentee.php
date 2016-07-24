@@ -108,90 +108,139 @@
 
 
         </nav> 
-		<p>
-		<h2>Name:</h2>
+<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Name:</h2>
+		<div class="text-primary text-center">
 		<?php
-			if(isset($_SESSION['username'])){
+			if(isset($_SESSION['username'])){				
 				echo $row['name'];
 			}
-		?></p>
-		<p>
-		<h2>Date of birth:</h2>
+		?>
+		</div>
+		</p>
+		</div>
+		</div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Date of birth:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['dob'];
 			}
-		?></p>
-		<p>
-		<h2>Location:</h2>
+		?>
+		</div>
+		</p>
+		</div>
+		</div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Location:</h2>
+		<div class="text-primary text-center">
+
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['location'];
 			}
-		?></p>
-		<p>
-		<h2>Email ID:</h2>
+		?>
+		</div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Email ID:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['email'];
 			}
-		?></p>
-		<p>
-		<h2>Username:</h2>
+		?>
+		</div></p>
+		</div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Username:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['username'];
 			}
-		?></p>
-		<p>
-		<h2>Password:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Password:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['password'];
 			}
-		?></p>
-		<p>
-		<h2>Mobile No.:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Mobile No.:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['mobile'];
 			}
-		?></p>
-		<p>
-		<h2>Address:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Address:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['address'];
 			}
-		?></p>
-		<p>
-		<h2>College Name:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">College Name:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['college'];
 			}
-		?></p>
-		<p>
-		<h2>College Address:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">College Address:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['compAddr'];
 			}
-		?></p>
-		<p>
-		<h2>Field for Expertise:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Field for Expertise:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['field'];
 			}
-		?></p>
-		<p>
-		<h2>Gender:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Gender:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['gender'];
 			}
-		?></p>
+		?>
+		</div></p></div></div>
 		</body>
 			
 	</html>
