@@ -191,16 +191,18 @@ echo '<div style="float:right; padding-right: 15%"><h1>My Goals:</h1></br>
 	}
 	 ?>
 	 </div>
-	 <div id="menu1">
 	 
-	  <form id="form" action='menteeindex.php' method='post'>
+	 <?php
+	 if($_SESSION['role']!='Mentor'){
+	  echo'<div style="float:left;"><h1>Schedule A Meeting:</h1></br></br><form id="form" action="menteeindex.php" method="post">
 	         TO:</br><input type="text" name="rid" id= "rid" /></br></br>
 			 Time:</br><input type="text" name="time" id= "name" required>	</br></br>
-			 Date:</br><input type="text" name="date" id= "gender"required></br></br>
-			 location:</br><input type="option" name="location" id="age"required></br></br>
-			 <input type="submit" value="submit" name="submit"id="submit"></br></br>
-	 </form>
-	 </div>
+			 Date:</br><input type="text" name="date" id= "gender" required></br></br>
+			 Location:</br><input type="option" name="location" id="age" required></br></br>
+			 <input type="submit" value="submit" name="submit" id="submit"></br></br></form></div>';
+	}
+	?>
+	 
 <?php
    if($_SESSION['role']=='Mentor'){
 echo'

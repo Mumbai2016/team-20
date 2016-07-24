@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2016 at 08:02 AM
+-- Generation Time: Jul 24, 2016 at 09:56 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `gender` varchar(256) NOT NULL,
   `role` varchar(256) NOT NULL,
   `confirmation` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -102,7 +102,10 @@ INSERT INTO `user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `u
 (2, 'snas', '0000-00-00', 'banglore', 2147483647, 'second', 'SecondUsername', 'secondpass', 'dadar', 'mca', 'djsang', 'boa', 'avp', 'prism', 'sectemp', 'm', 'Mentor', 1),
 (3, 'tejal', '2016-07-19', 'mumbai', 985293203, 'dssh@hdh.com', 'tj', 'tj123', 'fhdfh', 'dfdjf', 'djsfjd', 'djfdfj', 'djfsj', 'kdsdsk', 'ffdd', 'f', 'mentee', 1),
 (4, 'sans', '2002-07-11', 'ds', 1234567890, 'sanskrutirahulshah@gmail.com', 'sans', '1234', 'fgsd', 'dhsdh', 'jdjds', 'dfsdj', 'sdjdsj', 'sfjs', 'sjjs', 'F', 'Mentor', 1),
-(6, 'Gaurav', '2002-07-11', 'banglore', 1234567890, 'gaurav@hotmail.com', 'gauravm', '123456', 'bangalore', 'ME', 'PES', 'JP', 'VP', 'mumbai', 'Engg', 'F', 'Mentor', 1);
+(6, 'Gaurav', '2002-07-11', 'banglore', 1234567890, 'gaurav@hotmail.com', 'gauravm', '123456', 'bangalore', 'ME', 'PES', 'JP', 'VP', 'mumbai', 'Engg', 'F', 'Mentor', 1),
+(7, '', '0000-00-00', '', 0, '', 'admin', 'admin', '', '', '', '', '', '', '', '', '', 0),
+(10, 'gaurav', '0000-00-00', 'Mumbai', 2147483647, 'first', 'FirstUsername1', 'firstpass', 'malad', 'bca', 'kjsom', 'jp', 'vp', 'powai', 'tempfield', 'f', 'firstrole', 1),
+(11, 'snas', '0000-00-00', 'banglore', 2147483647, 'second', 'SecondUsername1', 'secondpass', 'dadar', 'mca', 'djsang', 'boa', 'avp', 'prism', 'sectemp', 'm', 'secondrole', 1);
 
 --
 -- Indexes for dumped tables
@@ -134,7 +137,7 @@ ALTER TABLE `meeting`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `serialno` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `serialno` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

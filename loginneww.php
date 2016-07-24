@@ -100,7 +100,7 @@
                     <li><a class="is-active" href="index.html">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
 
-                    <li><a href="index.html">LOGOUT</a></li>
+                    <li><a href="registerindex.php">SIGN UP</a></li>
                     <?php
       if($_SESSION['role']=='Mentor')
       echo'<li><a href="profile.php">PROFILE</a></li>';
