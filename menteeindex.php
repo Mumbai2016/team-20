@@ -57,8 +57,12 @@ $conn = new mysqli($host,$username,$password,$database);
 	
 	
 	  <header>
-	  <p id="p1">Mentor Dashboard</p>
-	  <p id="p2">Mentee DashBoard</p>
+	  <?php
+	  if($_SESSION['role']=='Mentor')
+	  echo'<p id="p1">Mentor Dashboard</p>';
+	  else
+	  echo'<p id="p2">Mentee DashBoard</p>';
+	 ?>
 	 </header>
 	 <div id="progress">
 	 <body>
@@ -95,7 +99,7 @@ $conn = new mysqli($host,$username,$password,$database);
 		<a href="#profile">Profile</a>
      </nav>
 	  <form id="form" action='menteeindex.php' method='post'>
-	         TO:</br><input type="text" name="rid" id= "rid" value="<?php if(isset($_SESSION['username'])) echo $mentoremail; ?>"/></br></br>
+	         TO:</br><input type="text" name="rid" id= "rid" /></br></br>
 			 Time:</br><input type="text" name="time" id= "name" required>	</br></br>
 			 Date:</br><input type="text" name="date" id= "gender"required></br></br>
 			 location:</br><input type="option" name="location" id="age"required></br></br>
@@ -126,15 +130,12 @@ $password = '';
 $database = 'katalyst';
 $conn = new mysqli($host,$username,$password,$database);
     	$mentorname=$_SESSION['username'];
-    	echo $mentorname;
     	$res = $conn->query("SELECT * FROM `katalyst`.`meeting`");
-     	
-     
       while($row=$res->fetch_assoc())
       {
-        if($row['mentor_username']==$mentorname && 0 == $row['completed']){
+        if($row['mentor_name']==$mentorname && 0 == $row['completed']){
 
-          echo '<tr><td>'.$row['mentee_username'].'</td>
+          echo '<tr><td>'.$row['metee_name'].'</td>
               <td>'.$row['time'].'</td>
               <td>'.$row['date'].'</td>
               <td>'.$row['location'].'</td>';
@@ -146,11 +147,6 @@ $conn = new mysqli($host,$username,$password,$database);
     }
 
     ?>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
 </table>
 
 <h1>Feedback Form</h1>
