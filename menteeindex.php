@@ -12,12 +12,13 @@ session_start();
 	<script type="text/javascript" src="mentee.js"></script>
 	<?php
 
-			$host = 'localhost';
+			
+	if($_SESSION['role']=='Mentee'){
+		$host = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'katalyst';
 $conn = new mysqli($host,$username,$password,$database);
-	if($_SESSION['role']=='Mentee'){
 			$menteename=$_SESSION['username'];
 			$res = $conn->query("SELECT * FROM `katalyst`.`mapping`");
       while($row=$res->fetch_assoc())
@@ -114,21 +115,28 @@ $conn = new mysqli($host,$username,$password,$database);
     <tr>
     <th>Mentee Name</t></th>
     <th>Time</th> 
-    <th>Place</th>
+    <th>Date</th>
     <th>Location</th>
     </tr>
     <?php
     if($_SESSION['role']=='Mentor'){
+    	$host = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'katalyst';
+$conn = new mysqli($host,$username,$password,$database);
     	$mentorname=$_SESSION['username'];
+    	echo $mentorname;
     	$res = $conn->query("SELECT * FROM `katalyst`.`meeting`");
+     	
+     
       while($row=$res->fetch_assoc())
       {
+        if($row['mentor_username']==$mentorname && 0 == $row['completed']){
 
-        if($row['mentor_name']==$mentorname&&0 == $row['completed']){
-
-          echo '<tr><td>'.$row['mentee_name'].'</td>
+          echo '<tr><td>'.$row['mentee_username'].'</td>
               <td>'.$row['time'].'</td>
-              <td>'.$row['place'].'</td>
+              <td>'.$row['date'].'</td>
               <td>'.$row['location'].'</td>';
               if($row['approved']==0)
               	echo '<td><button>Approve</button></td>';
