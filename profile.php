@@ -108,92 +108,132 @@
 
 
         </nav> 
-		<p>
-		<h2>Name:</h2>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Name:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['name'];
 			}
-		?></p>
-		<p>
-		<h2>Date of birth:</h2>
+		?>
+		</div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Date of birth:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['dob'];
 			}
-		?></p>
-		<p>
-		<h2>Location:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Location:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['location'];
 			}
-		?></p>
-		<p>
-		<h2>Email ID:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Email ID:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['email'];
 			}
-		?></p>
-		<p>
-		<h2>Username:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Username:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['username'];
 			}
-		?></p>
-		<p>
-		<h2>Password:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Password:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['password'];
 			}
-		?></p>
-		<p>
-		<h2>Mobile No.:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Mobile No.:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['mobile'];
 			}
-		?></p>
-		<p>
-		<h2>Qualification:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Qualification:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['qualification'];
 			}
-		?></p>
-		<p>
-		<h2>Designation:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Designation:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['designation'];
 			}
-		?></p>
-		<p>
-		<h2>Company:</h2>
+		?></div></p></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Company:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['company'];
 			}
-		?></p>
-		<p>
-		<h2>Company Address:</h2>
+		?></div></p></div></div>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Company Address:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['compAddr'];
 			}
 		?></p>
-		<p>
-		<h2>Field for Expertise:</h2>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Field for Expertise:</h2>
+		v
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['field'];
 			}
 		?></p>
-		<p>
-		<h2>Gender:</h2>
+		<div class="row">
+<div class="well">
+		<p class="text-primary text-center">
+		<h2 class="text-primary text-center">Gender:</h2>
+		<div class="text-primary text-center">
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['gender'];
