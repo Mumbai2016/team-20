@@ -68,7 +68,8 @@
                 $sql=("INSERT INTO `katalyst`.`user` (`serialno`, `name`, `dob`, `location`, `mobile`, `email`, `username`, `password`, `address`, `qualification`, `college`, `company`, `designation`, `compAddr`, `field`, `gender`, `role`, `confirmation`) VALUES (NULL, '$name', '$date', '$location', '$mobile', '$email', '$username', '$password', '$address', '$qual', '$colg', '$comp', '$designation', '$compaddress', '$field', '$gender', 'Mentor', '$conf');");
                 $res=$conn->query($sql);
                 $_SESSION['username']=$username;
-                header('Location: profile.php');
+                $_SESSION['role']='Mentor';
+                header('Location: menteeindex.php');
             }
 
             

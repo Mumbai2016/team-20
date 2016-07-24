@@ -9,7 +9,7 @@ session_start();
 		{
 			$host = 'localhost';
 			$username = 'root';
-			$password = 'ankita';
+			$password = '';
 			$database = 'katalyst';
 			$conn = new mysqli($host,$username,$password,$database);
 			$username = $_POST['username'];
@@ -64,7 +64,7 @@ session_start();
 			}
 
 			
-			header("Location: menteedashboard.php");
+			header("Location: menteeindex.php");
 		}
 	?>
 		

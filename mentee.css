@@ -13,6 +13,16 @@ header{
 	font-family: "Segoe UI", Georgia, Serif;
 	text-align:center;
 }
+#outer{
+		 	border: solid black 1px;
+		 	height: 30px;
+		 	width: 500px;
+		 }
+		 #inner{
+		 	background-color: orange;
+		 	height: 30px;
+		 	/*position: relative;*/
+		 }
 #btn{
 	 
 	 font-size:40px;

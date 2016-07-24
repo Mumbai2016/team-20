@@ -11,7 +11,11 @@ session_start();
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script type="text/javascript" src="mentee.js"></script>
 	<?php
-
+if(isset($_POST['log']))
+{
+	session_destroy();
+	header("Location: index.html");
+}
 			
 	if($_SESSION['role']=='Mentee'){
 		$host = 'localhost';
@@ -63,41 +67,22 @@ $conn = new mysqli($host,$username,$password,$database);
 	  else
 	  echo'<p id="p2">Mentee DashBoard</p>';
 	 ?>
+	 <form action="menteeindex.php" method="post"><input type="submit" name="log" value="Logout" style="float: right;margin-right: 50px"></button></form>
 	 </header>
 	 <div id="progress">
 	 <body>
-    <div class="container">
-        <h1>Bootstrap Progress Bar</h1>
-
-        <p>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="reset" data-level="info" class="btn btn-default">Reset</button>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="0" class="btn btn-default">0%</button>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="10" class="btn btn-default">10%</button>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="30" class="btn btn-default">30%</button>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="75" class="btn btn-default">75%</button>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="100" class="btn btn-default">100%</button>
-            <button data-toggle="progressbar" data-target="#myProgressbar" data-value="finish" data-level="success" class="btn btn-default">Finish</button>
-        </p>
-
-        <div id="myProgressbar" class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-            <span class="sr-only">0% Complete</span>
-          </div>
-        </div>
+    <div id="outer">
+          <div id="inner" <?php echo 'style="width:'.$tests.'px;"';?> ></div>
     </div>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="js/progressbar.js"></script>
+    
 	 
 	 
 	 </div>
 	 <div id="menu1">
-	 <nav id="menu">
-	    <a id ="schedule" href="#schedule">Schedule</a>
-		<a id ="schedule" href="#feedback">Feedback</a>
-		<a href="#profile">Profile</a>
-     </nav>
+	 
 	  <form id="form" action='menteeindex.php' method='post'>
 	         TO:</br><input type="text" name="rid" id= "rid" /></br></br>
 			 Time:</br><input type="text" name="time" id= "name" required>	</br></br>
@@ -108,13 +93,16 @@ $conn = new mysqli($host,$username,$password,$database);
 	 </div>
 	 
 	 <nav id="menu3">
-	    <a id ="schedule" href="#schedule">Schedule</a>
-		<a id ="schedule" href="#feedback">Feedback</a>
-		<a href="#profile">Profile</a>
+	 <?php
+	  if($_SESSION['role']=='Mentor')
+	  echo'<a href="profile.php">Profile</a>';
+	  else
+	  echo'<a href="profile-mentee.php">Profile</a>';
+	 ?>
      </nav>
 	 
 	 <div id="menu4">
-	 
+	 <h1 style="float:right;margin-right:200px">Upcoming Meetings:</h1></br></br>
 	 <table id="schedule">
     <tr>
     <th>Mentee Name</t></th>
