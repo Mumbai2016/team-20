@@ -54,7 +54,7 @@
         }
         ?>
 </head>
-<body color="blue">
+<body style="background-color:powderblue;">
 
 <div class="container">
 
