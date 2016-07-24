@@ -38,7 +38,7 @@
     <?php
       $host = 'localhost';
       $username = 'root';
-      $password = 'ankita';
+      $password = '';
       $database = 'katalyst';
       $conn = new mysqli($host,$username,$password,$database);
       $res = $conn->query("SELECT * FROM `katalyst`.`user`");
@@ -72,12 +72,6 @@
     </thead>
     <tbody>
     <?php
-      $host = 'localhost';
-      $username = 'root';
-      $password = 'ankita';
-
-      $database = 'katalyst';
-      $conn = new mysqli($host,$username,$password,$database);
       $res = $conn->query("SELECT * FROM `katalyst`.`mapping`");
       while($row=$res->fetch_assoc())
       {
@@ -104,11 +98,6 @@
 <?php
 if(isset($_POST['submit']))
 {
-$host = 'localhost';
-$username = 'root';
-$password = 'ankita';
-$database = 'katalyst';
-$conn = new mysqli($host,$username,$password,$database);
 $file = $_FILES['file']['tmp_name'];
 $handle = fopen($file, 'r');
 $c=0;

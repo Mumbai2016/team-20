@@ -17,7 +17,7 @@ $username = 'root';
 $password = '';
 $database = 'katalyst';
 $conn = new mysqli($host,$username,$password,$database);
-
+	if($_SESSION['role']=='Mentee'){
 			$menteename=$_SESSION['username'];
 			$res = $conn->query("SELECT * FROM `katalyst`.`mapping`");
       while($row=$res->fetch_assoc())
@@ -49,6 +49,7 @@ $conn = new mysqli($host,$username,$password,$database);
       	$message="Hello, I want to schedule a meeting on ".$date." at ".$time." at ".$location.". Thank you. ".$menteename;
       	mail($to,$subject,$message);
       }
+  }
 	?>
 	</head>
 	<body>
@@ -87,6 +88,27 @@ $conn = new mysqli($host,$username,$password,$database);
     <th>Place</th>
     <th>Location</th>
     </tr>
+    <?php
+    if($_SESSION['role']=='Mentor'){
+    	$mentorname=$_SESSION['username'];
+    	$res = $conn->query("SELECT * FROM `katalyst`.`meeting`");
+      while($row=$res->fetch_assoc())
+      {
+
+        if($row['mentor_name']==$mentorname&&0 == $row['completed']){
+
+          echo '<tr><td>'.$row['mentee_name'].'</td>
+              <td>'.$row['time'].'</td>
+              <td>'.$row['place'].'</td>
+              <td>'.$row['location'].'</td>';
+              if($row['approved']==0)
+              	echo '<td><button>Approve</button></td>';
+          echo '</tr>';
+         }
+      }
+    }
+
+    ?>
     <tr></tr>
     <tr></tr>
     <tr></tr>
