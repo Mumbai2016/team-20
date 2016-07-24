@@ -31,7 +31,8 @@ $conn = new mysqli($host,$username,$password,$database);
       			break;
       }
       $mentorname=$row['mentor_username'];
-      $score=$row['score'];
+      $score=(int)$row['score'];
+      $score=$score*10;
       $res = $conn->query("SELECT * FROM `katalyst`.`user`");
       while($row=$res->fetch_assoc())
       {
@@ -71,10 +72,14 @@ $conn = new mysqli($host,$username,$password,$database);
 	 </header>
 	 <div id="progress">
 	 <body>
-    <div id="outer">
-          <div id="inner" <?php echo 'style="width:'.$score.'px;"';?> ></div>
+   <div >
+    <h3 style="float:left;">How am I doing?</h3>
+    <div style="border: solid black 1px;
+      height: 30px;
+      width: 500px;float:left;">
+          <div style="height: 30px; width:300px; background-color: blue;" ></div>
     </div>
-
+    </div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     
