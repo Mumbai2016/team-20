@@ -140,24 +140,56 @@ $conn = new mysqli($host,$username,$password,$database);
 	  if($_SESSION['role']=='Mentor')
 	  echo'<p id="p1">Mentor Dashboard</p>';
 	  else
-	  echo'<p id="p2">Mentee DashBoard</p>';
+	  echo'<p id="p1">Mentee DashBoard</p>';
 	 ?>
 	 </header>
 	 <div id="progress">
 	 <body>
-   <div >
-    <h3 style="float:left;">How am I doing?</h3>
+   <div>
+   <?php
+   if($_SESSION['role']=='Mentor')
+    echo '<h3 style="float:left;">How is my mentee doing?</h3>';
+	else
+		echo '<h3 style="float:left;">How am I doing?</h3>';
+?>
     <div style="border: solid black 1px;
       height: 30px;
       width: 500px;float:left;">
-          <div style="height: 30px; width:300px; background-color: blue;" ></div>
+          <div style="height: 30px; width:200px; background-color: blue;" ></div>
     </div>
     </div>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    
-	 
-	 
+    </br></br>
+    <?php
+    if($_SESSION['role']!='Mentor'){
+echo '<div style="float:right; padding-right: 15%"><h1>My Goals:</h1></br>
+    <div>
+    <h3>Read How to kill a mockingbird:</h3>
+    <div style="border: solid black 1px;
+      height: 30px;
+      width: 500px;">
+          <div style="height: 30px; width:400px; background-color: blue;" ></div>
+    </div>
+    </div>
+    <div>
+    <h3>Complete Machine Leaning Course</h3>
+    <div style="border: solid black 1px;
+      height: 30px;
+      width: 500px;">
+          <div style="height: 30px; width:200px; background-color: blue;" ></div>
+    </div>
+    </div>
+    <div>
+    <h3>Practice Public Speaking</h3>
+    <div style="border: solid black 1px;
+      height: 30px;
+      width: 500px;">
+          <div style="height: 30px; width:100px; background-color: blue;" ></div>
+    </div>
+    </div>
+
+	 <h3 style="border: solid black 1px;width: 100px;">Add Goal</h3></div>';
+	}
+	 ?>
 	 </div>
 	 <div id="menu1">
 	 
@@ -169,16 +201,20 @@ $conn = new mysqli($host,$username,$password,$database);
 			 <input type="submit" value="submit" name="submit"id="submit"></br></br>
 	 </form>
 	 </div>
-	 
-	 <div id="menu4">
-	 <h1 style="float:right;margin-right:200px">Upcoming Meetings:</h1></br></br>
-	 <table id="schedule">
+<?php
+   if($_SESSION['role']=='Mentor'){
+echo'
+	 <div style="float:right; padding-right: 15%">
+	 <h1>Upcoming Meetings:</h1></br></br>
+	 <table>
     <tr>
     <th>Mentee Name</t></th>
     <th>Time</th> 
     <th>Date</th>
     <th>Location</th>
-    </tr>
+    </tr>';
+}
+?>
     <?php
     if($_SESSION['role']=='Mentor'){
     	$host = 'localhost';
@@ -198,14 +234,15 @@ $conn = new mysqli($host,$username,$password,$database);
               <td>'.$row['location'].'</td>';
               if($row['approved']==0)
               	echo '<td><button>Approve</button></td>';
-          echo '</tr>';
+          echo '</tr></table>';
          }
       }
     }
 
     ?>
-</table>
 
+</div>
+<div style="float:left; padding-right: 15%">
 <h1>Feedback Form</h1>
 <form>
     Date of Interaction:<br>
