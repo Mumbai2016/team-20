@@ -24,104 +24,104 @@
 					break;
 			}
 			
-
-
 		?>
 
 		</head>
 
 		<body>
-		<p>
+		<fieldset>
+		<p align="center">
 		<h2>Name:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['name'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Date of birth:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['dob'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Location:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['location'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Email ID:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['email'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Username:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['username'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Password:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['password'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Mobile No.:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['mobile'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Qualification:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['qualification'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Designation:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['designation'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Company:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['company'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Company Address:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['compAddr'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Field for Expertise:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['field'];
 			}
 		?></p>
-		<p>
+		<p align="center">
 		<h2>Gender:</h2>
 		<?php
 			if(isset($_SESSION['username'])){
 				echo $row['gender'];
 			}
 		?></p>
+		</fieldset>
 		</body>
 			
 	</html>
