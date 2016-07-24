@@ -31,7 +31,7 @@
 <!-- Registration form - START -->
 <div class="container">
     <div class="row">
-        <form role="form">
+        <form role="form" action="registration.php">
             <div class="col-lg-6">
                 <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
                 <div class="form-group">
@@ -154,7 +154,7 @@
                 <div class="form-group">
                     <label for="username">Enter Username</label>
                     <div class="input-group">
-                        <input type="email" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>

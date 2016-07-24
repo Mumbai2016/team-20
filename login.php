@@ -19,6 +19,8 @@
 			$conn = new mysqli($host,$username,$password,$database) or die(mysql_error());
 			$un1=$_POST['username'];
 			$pw1=$_POST['password'];
+			if($un1=='admin' && password=='admin')
+				header(Location:"admincss.php");
 			$usernamepresent=0;
 			$res = $conn->query("SELECT * FROM `katalyst`.`user`");
 			while($row=$res->fetch_assoc())
@@ -44,7 +46,7 @@
 			{
 				$_SESSION['username']=$un1;
 				$_SESSION['role']=$role;
-			header("Location: menteeindex.php");//to be chnaged to dashboard.php
+			header("Location:menteeindex.php");//to be chnaged to dashboard.php
 			}
 		}
 		?>
