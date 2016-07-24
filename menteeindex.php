@@ -72,7 +72,7 @@ $conn = new mysqli($host,$username,$password,$database);
 	 </header>
 	 <div id="progress">
 	 <body>
-   <div >
+   <div>
     <h3 style="float:left;">How am I doing?</h3>
     <div style="border: solid black 1px;
       height: 30px;
