@@ -10,15 +10,17 @@
 
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
 </head>
-<body>
+<body style="background-color:powderblue;">
 
 <div class="container">
 
 <div class="page-header">
     <h1>Registration form</h1>
 </div>
-
+<form class="form-horizontal">
 <!-- Registration form - START -->
 <div class="container">
     <div class="row">
@@ -32,7 +34,7 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
-                   <div class="form-group">
+                <div class="form-group">
                 
                     <label for="DOB">Date of Birth:</label></br></br>
                     <div class="input-group">
@@ -50,11 +52,13 @@
                         <option value="October">October</option>
                         <option value="November">November</option>
                         <option value="December">December</option>
-                    </select></div></div>
+                    </select>
+		    </div>
+                </div>
 
-                    <div class="form-group">
-                    <select id="DOBDay" name="day">
-                     <div class="input-group">
+                <div class="form-group">
+                    <div class="input-group">
+		     <select id="DOBDay" name="day">
                      <option> - Day - </option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -89,22 +93,22 @@
                         <option value="31">31</option>
                     </select></div></div>
                      
-
-                      <div class="form-group">
-                    <label for="location">Enter Location</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="location" id="name" placeholder="Enter location" required>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                    </div>
-                </div>
+                     
 
                      <div class="form-group">
-                    <label for="email">Enter Email</label>
-                    <div class="input-group">
+                    	<label for="email">Enter Email</label>
+                    	<div class="input-group">
                         <input type="text" class="form-control" name="email" id="email" placeholder="Enter emailid" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
                     </div>
-                </div>
+			<div class="form-group">
+			<label for="location">Enter Location</label>
+                    	<div class="input-group">
+                        	<input type="text" class="form-control" name="location" id="name" placeholder="Enter location" required>
+                        	<span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                    	</div>
+		     </div>
 
                 <div class="form-group">
                     <label for="username">Enter Username</label>
