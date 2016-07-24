@@ -50,7 +50,7 @@ $conn = new mysqli($host,$username,$password,$database);
       $date=$_POST['date'];
       $location=$_POST['location'];
       	$to=$mentoremail;
-      	$subject="New Mentoee Invitation Received";
+      	$subject="New Mentee Invitation Received";
       	$message="Hello, I want to schedule a meeting on ".$date." at ".$time." at ".$location.". Thank you. ".$menteename;
       	mail($to,$subject,$message);
       }
@@ -72,7 +72,7 @@ $conn = new mysqli($host,$username,$password,$database);
 	 <div id="progress">
 	 <body>
     <div id="outer">
-          <div id="inner" <?php echo 'style="width:'.$tests.'px;"';?> ></div>
+          <div id="inner" <?php echo 'style="width:'.$score.'px;"';?> ></div>
     </div>
 
     <script src="http://code.jquery.com/jquery.js"></script>
